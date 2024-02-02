@@ -66,12 +66,12 @@ type CustomerListParams struct {
 }
 
 // List customers. Reference: https://docs.cloudsync.prestashop.com/api-doc/expose-raw-api#/operations/Customers_getPaginatedItems
-func (service *CustomersService) List(shopID string, opts *CustomerListParams) (*[]Customer, *http.Response, error) {
+func (service *CustomersService) List(shopID string, opts *CustomerListParams) (*CustomerListResponse, *http.Response, error) {
 	_url := fmt.Sprintf("%s/%s/customers", service.client.getResourceTypeRaw(), shopID)
 
 	req, _ := service.client.NewRequest("GET", _url, opts, nil)
 
-	customers := new([]Customer)
+	customers := new(CustomerListResponse)
 	response, err := service.client.Do(req, customers)
 
 	if err != nil {
