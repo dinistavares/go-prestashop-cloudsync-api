@@ -58,10 +58,11 @@ type Client struct {
 	auth    *auth
 	baseURL *url.URL
 
-	Carts     *CartsService
-	Customers *CustomersService
-	Orders    *OrdersService
-	Products  *ProductsService
+	Carts        *CartsService
+	CartProducts *CartProductsService
+	Customers    *CustomersService
+	Orders       *OrdersService
+	Products     *ProductsService
 }
 
 type service struct {
@@ -109,6 +110,7 @@ func New() (*Client, error) {
 
 	// Map services
 	client.Carts = &CartsService{client: client}
+	client.CartProducts = &CartProductsService{client: client}
 	client.Customers = &CustomersService{client: client}
 	client.Orders = &OrdersService{client: client}
 	client.Products = &ProductsService{client: client}
