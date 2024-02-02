@@ -60,6 +60,7 @@ type Client struct {
 
 	Customers *CustomersService
 	Orders    *OrdersService
+	Products  *ProductsService
 }
 
 type service struct {
@@ -108,6 +109,7 @@ func New() (*Client, error) {
 	// Map services
 	client.Customers = &CustomersService{client: client}
 	client.Orders = &OrdersService{client: client}
+	client.Products = &ProductsService{client: client}
 
 	return client, nil
 }
