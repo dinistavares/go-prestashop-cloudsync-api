@@ -9,7 +9,7 @@ import (
 // Customer service
 type CustomersService service
 
-type CustomerListResponse struct {
+type CustomersResponse struct {
 	Customer  Customer   `json:"item,omitempty"`
 	Customers []Customer `json:"items,omitempty"`
 	GenericListResponse
@@ -21,11 +21,11 @@ type Customer struct {
 	IDCustomer        int        `json:"idCustomer,omitempty"`
 	IDLang            int        `json:"idLang,omitempty"`
 	EmailHash         string     `json:"emailHash,omitempty"`
-	Newsletter        *bool       `json:"newsletter,omitempty"`
-	Optin             *bool       `json:"optin,omitempty"`
-	Active            *bool       `json:"active,omitempty"`
-	IsGuest           *bool       `json:"isGuest,omitempty"`
-	Deleted           *bool       `json:"deleted,omitempty"`
+	Newsletter        *bool      `json:"newsletter,omitempty"`
+	Optin             *bool      `json:"optin,omitempty"`
+	Active            *bool      `json:"active,omitempty"`
+	IsGuest           *bool      `json:"isGuest,omitempty"`
+	Deleted           *bool      `json:"deleted,omitempty"`
 	CreatedAt         *time.Time `json:"createdAt,omitempty"`
 	UpdatedAt         *time.Time `json:"updatedAt,omitempty"`
 	LastSyncedAt      *time.Time `json:"lastSyncedAt,omitempty"`
@@ -67,12 +67,12 @@ type CustomerListParams struct {
 }
 
 // List customers. Reference: https://docs.cloudsync.prestashop.com/api-doc/expose-raw-api#/operations/Customers_getPaginatedItems
-func (service *CustomersService) List(shopID string, opts *CustomerListParams) (*CustomerListResponse, *http.Response, error) {
+func (service *CustomersService) List(shopID string, opts *CustomerListParams) (*CustomersResponse, *http.Response, error) {
 	_url := fmt.Sprintf("%s/%s/customers", service.client.getResourceTypeRaw(), shopID)
 
 	req, _ := service.client.NewRequest("GET", _url, opts, nil)
 
-	customers := new(CustomerListResponse)
+	customers := new(CustomersResponse)
 	response, err := service.client.Do(req, customers)
 
 	if err != nil {
@@ -83,12 +83,12 @@ func (service *CustomersService) List(shopID string, opts *CustomerListParams) (
 }
 
 // Get a customer. Reference: https://docs.cloudsync.prestashop.com/api-doc/expose-raw-api#/operations/Customers_getSingleItem
-func (service *CustomersService) Get(shopID string, shopContentId string) (*CustomerListResponse, *http.Response, error) {
+func (service *CustomersService) Get(shopID string, shopContentId string) (*CustomersResponse, *http.Response, error) {
 	_url := fmt.Sprintf("%s/%s/customers/%s", service.client.getResourceTypeRaw(), shopID, shopContentId)
 
 	req, _ := service.client.NewRequest("GET", _url, nil, nil)
 
-	customer := new(CustomerListResponse)
+	customer := new(CustomersResponse)
 	response, err := service.client.Do(req, customer)
 
 	if err != nil {
