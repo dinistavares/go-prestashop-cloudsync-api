@@ -59,6 +59,7 @@ type Client struct {
 	baseURL *url.URL
 
 	Customers *CustomersService
+	Orders    *OrdersService
 }
 
 type service struct {
@@ -106,6 +107,7 @@ func New() (*Client, error) {
 
 	// Map services
 	client.Customers = &CustomersService{client: client}
+	client.Orders = &OrdersService{client: client}
 
 	return client, nil
 }
