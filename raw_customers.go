@@ -16,10 +16,10 @@ type CustomersResponse struct {
 }
 
 type Customer struct {
-	ID                string     `json:"id,omitempty"`
-	ShopID            string     `json:"shopId,omitempty"`
 	IDCustomer        int        `json:"idCustomer,omitempty"`
 	IDLang            int        `json:"idLang,omitempty"`
+	ID                string     `json:"id,omitempty"`
+	ShopID            string     `json:"shopId,omitempty"`
 	EmailHash         string     `json:"emailHash,omitempty"`
 	Newsletter        *bool      `json:"newsletter,omitempty"`
 	Optin             *bool      `json:"optin,omitempty"`
