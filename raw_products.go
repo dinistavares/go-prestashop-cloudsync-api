@@ -81,59 +81,92 @@ type Product struct {
 }
 
 type ProductListParams struct {
+	IdAttribute                  int      `url:"idAttribute,omitempty"`
+	IdAttributeStart             int      `url:"idAttributeStart,omitempty"`
+	IdAttributeEnd               int      `url:"idAttributeEnd,omitempty"`
+	IdCategoryDefault            int      `url:"idCategoryDefault,omitempty"`
+	IdCategoryDefaultStart       int      `url:"idCategoryDefaultStart,omitempty"`
+	IdCategoryDefaultEnd         int      `url:"idCategoryDefaultEnd,omitempty"`
+	IdCategoryDefaultBigint      int      `url:"idCategoryDefaultBigint,omitempty"`
+	IdCategoryDefaultBigintStart int      `url:"idCategoryDefaultBigintStart,omitempty"`
+	IdCategoryDefaultBigintEnd   int      `url:"idCategoryDefaultBigintEnd,omitempty"`
+	IdManufacturer               int      `url:"idManufacturer,omitempty"`
+	IdProduct                    int      `url:"idProduct,omitempty"`
+	IdProductStart               int      `url:"idProductStart,omitempty"`
+	IdProductEnd                 int      `url:"idProductEnd,omitempty"`
+	IdSupplier                   int      `url:"idSupplier,omitempty"`
+	Quantity                     int      `url:"quantity,omitempty"`
+	QuantityStart                int      `url:"quantityStart,omitempty"`
+	QuantityEnd                  int      `url:"quantityEnd,omitempty"`
+	AdditionalDeliveryTimes      float64 `url:"additionalDeliveryTimes,omitempty"`
+	AdditionalDeliveryTimesStart float64 `url:"additionalDeliveryTimesStart,omitempty"`
+	AdditionalDeliveryTimesEnd   float64 `url:"additionalDeliveryTimesEnd,omitempty"`
+	AdditionalShippingCost       float64 `url:"additionalShippingCost,omitempty"`
+	AdditionalShippingCostStart  float64 `url:"additionalShippingCostStart,omitempty"`
+	AdditionalShippingCostEnd    float64 `url:"additionalShippingCostEnd,omitempty"`
+	Depth                        float64 `url:"depth,omitempty"`
+	DepthStart                   float64 `url:"depthStart,omitempty"`
+	DepthEnd                     float64 `url:"depthEnd,omitempty"`
+	Height                       float64 `url:"height,omitempty"`
+	HeightStart                  float64 `url:"heightStart,omitempty"`
+	HeightEnd                    float64 `url:"heightEnd,omitempty"`
+	PricePerUnit                 float64 `url:"pricePerUnit,omitempty"`
+	PricePerUnitStart            float64 `url:"pricePerUnitStart,omitempty"`
+	PricePerUnitEnd              float64 `url:"pricePerUnitEnd,omitempty"`
+	PriceTaxExcl                 float64 `url:"priceTaxExcl,omitempty"`
+	PriceTaxExclStart            float64 `url:"priceTaxExclStart,omitempty"`
+	PriceTaxExclEnd              float64 `url:"priceTaxExclEnd,omitempty"`
+	PriceTaxIncl                 float64 `url:"priceTaxIncl,omitempty"`
+	PriceTaxInclStart            float64 `url:"priceTaxInclStart,omitempty"`
+	PriceTaxInclEnd              float64 `url:"priceTaxInclEnd,omitempty"`
+	SalePriceTaxExcl             float64 `url:"salePriceTaxExcl,omitempty"`
+	SalePriceTaxExclStart        float64 `url:"salePriceTaxExclStart,omitempty"`
+	SalePriceTaxExclEnd          float64 `url:"salePriceTaxExclEnd,omitempty"`
+	SalePriceTaxIncl             float64 `url:"salePriceTaxIncl,omitempty"`
+	SalePriceTaxInclStart        float64 `url:"salePriceTaxInclStart,omitempty"`
+	SalePriceTaxInclEnd          float64 `url:"salePriceTaxInclEnd,omitempty"`
+	SaleTax                      float64 `url:"saleTax,omitempty"`
+	SaleTaxStart                 float64 `url:"saleTaxStart,omitempty"`
+	SaleTaxEnd                   float64 `url:"saleTaxEnd,omitempty"`
+	Tax                          float64 `url:"tax,omitempty"`
+	TaxStart                     float64 `url:"taxStart,omitempty"`
+	TaxEnd                       float64 `url:"taxEnd,omitempty"`
+	UnitPriceRatio               float64 `url:"unitPriceRatio,omitempty"`
+	UnitPriceRatioStart          float64 `url:"unitPriceRatioStart,omitempty"`
+	UnitPriceRatioEnd            float64 `url:"unitPriceRatioEnd,omitempty"`
+	Weight                       float64 `url:"weight,omitempty"`
+	WeightStart                  float64 `url:"weightStart,omitempty"`
+	WeightEnd                    float64 `url:"weightEnd,omitempty"`
+	Width                        float64 `url:"width,omitempty"`
+	WidthStart                   float64 `url:"widthStart,omitempty"`
+	WidthEnd                     float64 `url:"widthEnd,omitempty"`
 	Active                       *bool    `url:"active,omitempty"`
-	AdditionalDeliveryTimes      *float64 `url:"additionalDeliveryTimes,omitempty"`
-	AdditionalDeliveryTimesStart *float64 `url:"additionalDeliveryTimesStart,omitempty"`
-	AdditionalDeliveryTimesEnd   *float64 `url:"additionalDeliveryTimesEnd,omitempty"`
-	AdditionalShippingCost       *float64 `url:"additionalShippingCost,omitempty"`
-	AdditionalShippingCostStart  *float64 `url:"additionalShippingCostStart,omitempty"`
-	AdditionalShippingCostEnd    *float64 `url:"additionalShippingCostEnd,omitempty"`
+	AvailableForOrder            *bool    `url:"availableForOrder,omitempty"`
+	Deleted                      *bool    `url:"deleted,omitempty"`
+	IsBundle                     *bool    `url:"isBundle,omitempty"`
+	IsDefaultAttribute           *bool    `url:"isDefaultAttribute,omitempty"`
+	IsVirtual                    *bool    `url:"isVirtual,omitempty"`
+	DeletedAtStart               string   `url:"deletedAtStart,omitempty"`
+	DeletedAtEnd                 string   `url:"deletedAtEnd,omitempty"`
+	DeliveryInStock              string   `url:"deliveryInStock,omitempty"`
+	DeliveryOutStock             string   `url:"deliveryOutStock,omitempty"`
 	Attributes                   string   `url:"attributes,omitempty"`
 	AvailableDate                string   `url:"availableDate,omitempty"`
 	AvailableDateStart           string   `url:"availableDateStart,omitempty"`
 	AvailableDateEnd             string   `url:"availableDateEnd,omitempty"`
 	AvailableDateLegacy          string   `url:"availableDateLegacy,omitempty"`
-	AvailableForOrder            *bool    `url:"availableForOrder,omitempty"`
 	CategoryIdPath               string   `url:"categoryIdPath,omitempty"`
 	CategoryPath                 string   `url:"categoryPath,omitempty"`
 	Condition                    string   `url:"condition,omitempty"`
 	Cover                        string   `url:"cover,omitempty"`
 	DefaultCategory              string   `url:"defaultCategory,omitempty"`
-	Deleted                      *bool    `url:"deleted,omitempty"`
 	DeletedAt                    string   `url:"deletedAt,omitempty"`
-	DeletedAtStart               string   `url:"deletedAtStart,omitempty"`
-	DeletedAtEnd                 string   `url:"deletedAtEnd,omitempty"`
-	DeliveryInStock              string   `url:"deliveryInStock,omitempty"`
-	DeliveryOutStock             string   `url:"deliveryOutStock,omitempty"`
-	Depth                        *float64 `url:"depth,omitempty"`
-	DepthStart                   *float64 `url:"depthStart,omitempty"`
-	DepthEnd                     *float64 `url:"depthEnd,omitempty"`
 	Description                  string   `url:"description,omitempty"`
 	DescriptionShort             string   `url:"descriptionShort,omitempty"`
 	Ean                          string   `url:"ean,omitempty"`
 	Features                     string   `url:"features,omitempty"`
-	Height                       *float64 `url:"height,omitempty"`
-	HeightStart                  *float64 `url:"heightStart,omitempty"`
-	HeightEnd                    *float64 `url:"heightEnd,omitempty"`
-	IdAttribute                  float64  `url:"idAttribute,omitempty"`
-	IdAttributeStart             float64  `url:"idAttributeStart,omitempty"`
-	IdAttributeEnd               float64  `url:"idAttributeEnd,omitempty"`
-	IdCategoryDefault            float64  `url:"idCategoryDefault,omitempty"`
-	IdCategoryDefaultStart       float64  `url:"idCategoryDefaultStart,omitempty"`
-	IdCategoryDefaultEnd         float64  `url:"idCategoryDefaultEnd,omitempty"`
-	IdCategoryDefaultBigint      float64  `url:"idCategoryDefaultBigint,omitempty"`
-	IdCategoryDefaultBigintStart float64  `url:"idCategoryDefaultBigintStart,omitempty"`
-	IdCategoryDefaultBigintEnd   float64  `url:"idCategoryDefaultBigintEnd,omitempty"`
-	IdManufacturer               float64  `url:"idManufacturer,omitempty"`
-	IdProduct                    float64  `url:"idProduct,omitempty"`
-	IdProductStart               float64  `url:"idProductStart,omitempty"`
-	IdProductEnd                 float64  `url:"idProductEnd,omitempty"`
 	IdProductAttribute           string   `url:"idProductAttribute,omitempty"`
-	IdSupplier                   float64  `url:"idSupplier,omitempty"`
 	Images                       string   `url:"images,omitempty"`
-	IsBundle                     *bool    `url:"isBundle,omitempty"`
-	IsDefaultAttribute           *bool    `url:"isDefaultAttribute,omitempty"`
-	IsVirtual                    *bool    `url:"isVirtual,omitempty"`
 	Isbn                         string   `url:"isbn,omitempty"`
 	IsoCode                      string   `url:"isoCode,omitempty"`
 	Link                         string   `url:"link,omitempty"`
@@ -141,45 +174,12 @@ type ProductListParams struct {
 	Manufacturer                 string   `url:"manufacturer,omitempty"`
 	Mpn                          string   `url:"mpn,omitempty"`
 	Name                         string   `url:"name,omitempty"`
-	PricePerUnit                 *float64 `url:"pricePerUnit,omitempty"`
-	PricePerUnitStart            *float64 `url:"pricePerUnitStart,omitempty"`
-	PricePerUnitEnd              *float64 `url:"pricePerUnitEnd,omitempty"`
-	PriceTaxExcl                 *float64 `url:"priceTaxExcl,omitempty"`
-	PriceTaxExclStart            *float64 `url:"priceTaxExclStart,omitempty"`
-	PriceTaxExclEnd              *float64 `url:"priceTaxExclEnd,omitempty"`
-	PriceTaxIncl                 *float64 `url:"priceTaxIncl,omitempty"`
-	PriceTaxInclStart            *float64 `url:"priceTaxInclStart,omitempty"`
-	PriceTaxInclEnd              *float64 `url:"priceTaxInclEnd,omitempty"`
-	Quantity                     *float64 `url:"quantity,omitempty"`
-	QuantityStart                *float64 `url:"quantityStart,omitempty"`
-	QuantityEnd                  *float64 `url:"quantityEnd,omitempty"`
 	Reference                    string   `url:"reference,omitempty"`
 	SaleDate                     string   `url:"saleDate,omitempty"`
-	SalePriceTaxExcl             *float64 `url:"salePriceTaxExcl,omitempty"`
-	SalePriceTaxExclStart        *float64 `url:"salePriceTaxExclStart,omitempty"`
-	SalePriceTaxExclEnd          *float64 `url:"salePriceTaxExclEnd,omitempty"`
-	SalePriceTaxIncl             *float64 `url:"salePriceTaxIncl,omitempty"`
-	SalePriceTaxInclStart        *float64 `url:"salePriceTaxInclStart,omitempty"`
-	SalePriceTaxInclEnd          *float64 `url:"salePriceTaxInclEnd,omitempty"`
-	SaleTax                      *float64 `url:"saleTax,omitempty"`
-	SaleTaxStart                 *float64 `url:"saleTaxStart,omitempty"`
-	SaleTaxEnd                   *float64 `url:"saleTaxEnd,omitempty"`
-	Tax                          *float64 `url:"tax,omitempty"`
-	TaxStart                     *float64 `url:"taxStart,omitempty"`
-	TaxEnd                       *float64 `url:"taxEnd,omitempty"`
 	UniqueProductId              string   `url:"uniqueProductId,omitempty"`
-	UnitPriceRatio               *float64 `url:"unitPriceRatio,omitempty"`
-	UnitPriceRatioStart          *float64 `url:"unitPriceRatioStart,omitempty"`
-	UnitPriceRatioEnd            *float64 `url:"unitPriceRatioEnd,omitempty"`
 	Unity                        string   `url:"unity,omitempty"`
 	Upc                          string   `url:"upc,omitempty"`
 	Visibility                   string   `url:"visibility,omitempty"`
-	Weight                       *float64 `url:"weight,omitempty"`
-	WeightStart                  *float64 `url:"weightStart,omitempty"`
-	WeightEnd                    *float64 `url:"weightEnd,omitempty"`
-	Width                        *float64 `url:"width,omitempty"`
-	WidthStart                   *float64 `url:"widthStart,omitempty"`
-	WidthEnd                     *float64 `url:"widthEnd,omitempty"`
 	GenericListParams
 }
 
