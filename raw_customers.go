@@ -34,13 +34,9 @@ type Customer struct {
 }
 
 type CustomerListParams struct {
-	CreatedAt              string `url:"createdAt,omitempty"`
-	CreatedAtStart         string `url:"createdAtStart,omitempty"`
-	CreatedAtEnd           string `url:"createdAtEnd,omitempty"`
 	DeletedAt              string `url:"deletedAt,omitempty"`
 	DeletedAtStart         string `url:"deletedAtStart,omitempty"`
 	DeletedAtEnd           string `url:"deletedAtEnd,omitempty"`
-	Direction              string `url:"direction,omitempty"`
 	EmailHash              string `url:"emailHash,omitempty"`
 	IdCustomer             *int   `url:"idCustomer,omitempty"`
 	IdCustomerStart        *int   `url:"idCustomerStart,omitempty"`
@@ -53,16 +49,9 @@ type CustomerListParams struct {
 	IsGuest                *bool  `url:"isGuest,omitempty"`
 	Optin                  *bool  `url:"optin,omitempty"`
 	Newsletter             *bool  `url:"newsletter,omitempty"`
-	LastSyncedAt           string `url:"lastSyncedAt,omitempty"`
-	LastSyncedAtStart      string `url:"lastSyncedAtStart,omitempty"`
-	LastSyncedAtEnd        string `url:"lastSyncedAtEnd,omitempty"`
 	NewsletterDateAdd      string `url:"newsletterDateAdd,omitempty"`
 	NewsletterDateAddStart string `url:"newsletterDateAddStart,omitempty"`
 	NewsletterDateAddEnd   string `url:"newsletterDateAddEnd,omitempty"`
-	Sort                   string `url:"sort,omitempty"`
-	UpdatedAt              string `url:"updatedAt,omitempty"`
-	UpdatedAtStart         string `url:"updatedAtStart,omitempty"`
-	UpdatedAtEnd           string `url:"updatedAtEnd,omitempty"`
 	GenericListParams
 }
 

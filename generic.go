@@ -1,8 +1,8 @@
 package prestashop
 
 type GenericListResponse struct {
-	Kind       string                `json:"kind,omitempty"`
-	Total      int                   `json:"total,omitempty"`
+	Kind       string                 `json:"kind,omitempty"`
+	Total      int                    `json:"total,omitempty"`
 	Pagination *GenericListPagination `json:"pagination,omitempty"`
 	Links      *GenericListLinks      `json:"links,omitempty"`
 }
@@ -20,8 +20,19 @@ type GenericListLinks struct {
 }
 
 type GenericListParams struct {
-	Limit  int `url:"limit"`
-	Offset int `url:"offset"`
+	Limit             int    `url:"limit"`
+	Offset            int    `url:"offset"`
+	CreatedAt         string `url:"createdAt,omitempty"`
+	CreatedAtStart    string `url:"createdAtStart,omitempty"`
+	CreatedAtEnd      string `url:"createdAtEnd,omitempty"`
+	Direction              string `url:"direction,omitempty"`
+	LastSyncedAt      string `url:"lastSyncedAt,omitempty"`
+	LastSyncedAtStart string `url:"lastSyncedAtStart,omitempty"`
+	LastSyncedAtEnd   string `url:"lastSyncedAtEnd,omitempty"`
+	Sort              string `url:"sort,omitempty"`
+	UpdatedAt         string `url:"updatedAt,omitempty"`
+	UpdatedAtStart    string `url:"updatedAtStart,omitempty"`
+	UpdatedAtEnd      string `url:"updatedAtEnd,omitempty"`
 }
 
 var (
