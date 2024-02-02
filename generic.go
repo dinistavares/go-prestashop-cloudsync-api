@@ -3,8 +3,8 @@ package prestashop
 type GenericListResponse struct {
 	Kind       string                `json:"kind,omitempty"`
 	Total      int                   `json:"total,omitempty"`
-	Pagination GenericListPagination `json:"pagination,omitempty"`
-	Links      GenericListLinks      `json:"links,omitempty"`
+	Pagination *GenericListPagination `json:"pagination,omitempty"`
+	Links      *GenericListLinks      `json:"links,omitempty"`
 }
 
 type GenericListPagination struct {
