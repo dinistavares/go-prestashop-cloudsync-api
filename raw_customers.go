@@ -10,6 +10,7 @@ import (
 type CustomersService service
 
 type CustomerListResponse struct {
+	Customer  Customer   `json:"item,omitempty"`
 	Customers []Customer `json:"items,omitempty"`
 	GenericListResponse
 }
@@ -20,11 +21,11 @@ type Customer struct {
 	IDCustomer        int        `json:"idCustomer,omitempty"`
 	IDLang            int        `json:"idLang,omitempty"`
 	EmailHash         string     `json:"emailHash,omitempty"`
-	Newsletter        bool       `json:"newsletter,omitempty"`
-	Optin             bool       `json:"optin,omitempty"`
-	Active            bool       `json:"active,omitempty"`
-	IsGuest           bool       `json:"isGuest,omitempty"`
-	Deleted           bool       `json:"deleted,omitempty"`
+	Newsletter        *bool       `json:"newsletter,omitempty"`
+	Optin             *bool       `json:"optin,omitempty"`
+	Active            *bool       `json:"active,omitempty"`
+	IsGuest           *bool       `json:"isGuest,omitempty"`
+	Deleted           *bool       `json:"deleted,omitempty"`
 	CreatedAt         *time.Time `json:"createdAt,omitempty"`
 	UpdatedAt         *time.Time `json:"updatedAt,omitempty"`
 	LastSyncedAt      *time.Time `json:"lastSyncedAt,omitempty"`
@@ -79,4 +80,20 @@ func (service *CustomersService) List(shopID string, opts *CustomerListParams) (
 	}
 
 	return customers, response, nil
+}
+
+// Get a customer. Reference: https://docs.cloudsync.prestashop.com/api-doc/expose-raw-api#/operations/Customers_getSingleItem
+func (service *CustomersService) Get(shopID string, shopContentId string) (*CustomerListResponse, *http.Response, error) {
+	_url := fmt.Sprintf("%s/%s/customers/%s", service.client.getResourceTypeRaw(), shopID, shopContentId)
+
+	req, _ := service.client.NewRequest("GET", _url, nil, nil)
+
+	customer := new(CustomerListResponse)
+	response, err := service.client.Do(req, customer)
+
+	if err != nil {
+		return nil, response, err
+	}
+
+	return customer, response, nil
 }
