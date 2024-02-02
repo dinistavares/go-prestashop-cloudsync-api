@@ -25,7 +25,7 @@ type GenericListParams struct {
 	CreatedAt         string `url:"createdAt,omitempty"`
 	CreatedAtStart    string `url:"createdAtStart,omitempty"`
 	CreatedAtEnd      string `url:"createdAtEnd,omitempty"`
-	Direction              string `url:"direction,omitempty"`
+	Direction         string `url:"direction,omitempty"`
 	LastSyncedAt      string `url:"lastSyncedAt,omitempty"`
 	LastSyncedAtStart string `url:"lastSyncedAtStart,omitempty"`
 	LastSyncedAtEnd   string `url:"lastSyncedAtEnd,omitempty"`
