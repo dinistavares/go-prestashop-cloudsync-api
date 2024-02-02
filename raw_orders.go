@@ -6,12 +6,12 @@ import (
 	"time"
 )
 
-// Customer service
+// Order service
 type OrdersService service
 
 type OrdersResponse struct {
-	Customer  *Order   `json:"item,omitempty"`
-	Customers *[]Order `json:"items,omitempty"`
+	Order  *Order   `json:"item,omitempty"`
+	Orders *[]Order `json:"items,omitempty"`
 	GenericListResponse
 }
 
@@ -45,27 +45,15 @@ type Order struct {
 }
 
 type OrderListParams struct {
-	ConversionRate        float64 `url:"conversionRate,omitempty"`
-	ConversionRateStart   float64 `url:"conversionRateStart,omitempty"`
-	ConversionRateEnd     float64 `url:"conversionRateEnd,omitempty"`
-	Currency              string  `url:"currency,omitempty"`
-	CurrentState          int     `url:"currentState,omitempty"`
-	CurrentStateStart     int     `url:"currentStateStart,omitempty"`
-	CurrentStateEnd       int     `url:"currentStateEnd,omitempty"`
-	DeliveryCountryCode   string  `url:"deliveryCountryCode,omitempty"`
-	Direction             string  `url:"direction,omitempty"`
 	IdCarrier             int     `url:"idCarrier,omitempty"`
 	IdCarrierStart        int     `url:"idCarrierStart,omitempty"`
 	IdCarrierEnd          int     `url:"idCarrierEnd,omitempty"`
-	IdCart                string  `url:"idCart,omitempty"`
-	IdCustomer            string  `url:"idCustomer,omitempty"`
-	IdOrder               string  `url:"idOrder,omitempty"`
-	InvoiceCountryCode    string  `url:"invoiceCountryCode,omitempty"`
-	IsPaid                *bool   `url:"isPaid,omitempty"`
-	NewCustomer           *bool   `url:"newCustomer,omitempty"`
-	PaymentMode           string  `url:"paymentMode,omitempty"`
-	PaymentModule         string  `url:"paymentModule,omitempty"`
-	Reference             string  `url:"reference,omitempty"`
+	CurrentState          int     `url:"currentState,omitempty"`
+	CurrentStateStart     int     `url:"currentStateStart,omitempty"`
+	CurrentStateEnd       int     `url:"currentStateEnd,omitempty"`
+	ConversionRate        float64 `url:"conversionRate,omitempty"`
+	ConversionRateStart   float64 `url:"conversionRateStart,omitempty"`
+	ConversionRateEnd     float64 `url:"conversionRateEnd,omitempty"`
 	Refund                float64 `url:"refund,omitempty"`
 	RefundStart           float64 `url:"refundStart,omitempty"`
 	RefundEnd             float64 `url:"refundEnd,omitempty"`
@@ -87,37 +75,48 @@ type OrderListParams struct {
 	TotalPaidTaxIncl      float64 `url:"totalPaidTaxIncl,omitempty"`
 	TotalPaidTaxInclStart float64 `url:"totalPaidTaxInclStart,omitempty"`
 	TotalPaidTaxInclEnd   float64 `url:"totalPaidTaxInclEnd,omitempty"`
+	Currency              string  `url:"currency,omitempty"`
+	IdCart                string  `url:"idCart,omitempty"`
+	IdCustomer            string  `url:"idCustomer,omitempty"`
+	IdOrder               string  `url:"idOrder,omitempty"`
+	DeliveryCountryCode   string  `url:"deliveryCountryCode,omitempty"`
+	InvoiceCountryCode    string  `url:"invoiceCountryCode,omitempty"`
+	PaymentMode           string  `url:"paymentMode,omitempty"`
+	PaymentModule         string  `url:"paymentModule,omitempty"`
+	Reference             string  `url:"reference,omitempty"`
+	IsPaid                *bool   `url:"isPaid,omitempty"`
+	NewCustomer           *bool   `url:"newCustomer,omitempty"`
 	GenericListParams
 }
 
-// List customers. Reference: https://docs.cloudsync.prestashop.com/api-doc/expose-raw-api#/operations/Orders_getPaginatedItems
+// List orders. Reference: https://docs.cloudsync.prestashop.com/api-doc/expose-raw-api#/operations/Orders_getPaginatedItems
 func (service *OrdersService) List(shopID string, opts *OrderListParams) (*OrdersResponse, *http.Response, error) {
 	_url := fmt.Sprintf("%s/%s/orders", service.client.getResourceTypeRaw(), shopID)
 
 	req, _ := service.client.NewRequest("GET", _url, opts, nil)
 
-	customers := new(OrdersResponse)
-	response, err := service.client.Do(req, customers)
+	orders := new(OrdersResponse)
+	response, err := service.client.Do(req, orders)
 
 	if err != nil {
 		return nil, response, err
 	}
 
-	return customers, response, nil
+	return orders, response, nil
 }
 
-// Get a customer. Reference: https://docs.cloudsync.prestashop.com/api-doc/expose-raw-api#/operations/Orders_getSingleItem
+// Get a order. Reference: https://docs.cloudsync.prestashop.com/api-doc/expose-raw-api#/operations/Orders_getSingleItem
 func (service *OrdersService) Get(shopID string, shopContentId string) (*OrdersResponse, *http.Response, error) {
 	_url := fmt.Sprintf("%s/%s/orders/%s", service.client.getResourceTypeRaw(), shopID, shopContentId)
 
 	req, _ := service.client.NewRequest("GET", _url, nil, nil)
 
-	customer := new(OrdersResponse)
-	response, err := service.client.Do(req, customer)
+	order := new(OrdersResponse)
+	response, err := service.client.Do(req, order)
 
 	if err != nil {
 		return nil, response, err
 	}
 
-	return customer, response, nil
+	return order, response, nil
 }
