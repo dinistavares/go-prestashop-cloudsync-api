@@ -81,23 +81,23 @@ type Product struct {
 }
 
 type ProductListParams struct {
-	IdAttribute                  int      `url:"idAttribute,omitempty"`
-	IdAttributeStart             int      `url:"idAttributeStart,omitempty"`
-	IdAttributeEnd               int      `url:"idAttributeEnd,omitempty"`
-	IdCategoryDefault            int      `url:"idCategoryDefault,omitempty"`
-	IdCategoryDefaultStart       int      `url:"idCategoryDefaultStart,omitempty"`
-	IdCategoryDefaultEnd         int      `url:"idCategoryDefaultEnd,omitempty"`
-	IdCategoryDefaultBigint      int      `url:"idCategoryDefaultBigint,omitempty"`
-	IdCategoryDefaultBigintStart int      `url:"idCategoryDefaultBigintStart,omitempty"`
-	IdCategoryDefaultBigintEnd   int      `url:"idCategoryDefaultBigintEnd,omitempty"`
-	IdManufacturer               int      `url:"idManufacturer,omitempty"`
-	IdProduct                    int      `url:"idProduct,omitempty"`
-	IdProductStart               int      `url:"idProductStart,omitempty"`
-	IdProductEnd                 int      `url:"idProductEnd,omitempty"`
-	IdSupplier                   int      `url:"idSupplier,omitempty"`
-	Quantity                     int      `url:"quantity,omitempty"`
-	QuantityStart                int      `url:"quantityStart,omitempty"`
-	QuantityEnd                  int      `url:"quantityEnd,omitempty"`
+	IdAttribute                  int     `url:"idAttribute,omitempty"`
+	IdAttributeStart             int     `url:"idAttributeStart,omitempty"`
+	IdAttributeEnd               int     `url:"idAttributeEnd,omitempty"`
+	IdCategoryDefault            int     `url:"idCategoryDefault,omitempty"`
+	IdCategoryDefaultStart       int     `url:"idCategoryDefaultStart,omitempty"`
+	IdCategoryDefaultEnd         int     `url:"idCategoryDefaultEnd,omitempty"`
+	IdCategoryDefaultBigint      int     `url:"idCategoryDefaultBigint,omitempty"`
+	IdCategoryDefaultBigintStart int     `url:"idCategoryDefaultBigintStart,omitempty"`
+	IdCategoryDefaultBigintEnd   int     `url:"idCategoryDefaultBigintEnd,omitempty"`
+	IdManufacturer               int     `url:"idManufacturer,omitempty"`
+	IdProduct                    int     `url:"idProduct,omitempty"`
+	IdProductStart               int     `url:"idProductStart,omitempty"`
+	IdProductEnd                 int     `url:"idProductEnd,omitempty"`
+	IdSupplier                   int     `url:"idSupplier,omitempty"`
+	Quantity                     int     `url:"quantity,omitempty"`
+	QuantityStart                int     `url:"quantityStart,omitempty"`
+	QuantityEnd                  int     `url:"quantityEnd,omitempty"`
 	AdditionalDeliveryTimes      float64 `url:"additionalDeliveryTimes,omitempty"`
 	AdditionalDeliveryTimesStart float64 `url:"additionalDeliveryTimesStart,omitempty"`
 	AdditionalDeliveryTimesEnd   float64 `url:"additionalDeliveryTimesEnd,omitempty"`
@@ -140,46 +140,46 @@ type ProductListParams struct {
 	Width                        float64 `url:"width,omitempty"`
 	WidthStart                   float64 `url:"widthStart,omitempty"`
 	WidthEnd                     float64 `url:"widthEnd,omitempty"`
-	Active                       *bool    `url:"active,omitempty"`
-	AvailableForOrder            *bool    `url:"availableForOrder,omitempty"`
-	Deleted                      *bool    `url:"deleted,omitempty"`
-	IsBundle                     *bool    `url:"isBundle,omitempty"`
-	IsDefaultAttribute           *bool    `url:"isDefaultAttribute,omitempty"`
-	IsVirtual                    *bool    `url:"isVirtual,omitempty"`
-	DeletedAtStart               string   `url:"deletedAtStart,omitempty"`
-	DeletedAtEnd                 string   `url:"deletedAtEnd,omitempty"`
-	DeliveryInStock              string   `url:"deliveryInStock,omitempty"`
-	DeliveryOutStock             string   `url:"deliveryOutStock,omitempty"`
-	Attributes                   string   `url:"attributes,omitempty"`
-	AvailableDate                string   `url:"availableDate,omitempty"`
-	AvailableDateStart           string   `url:"availableDateStart,omitempty"`
-	AvailableDateEnd             string   `url:"availableDateEnd,omitempty"`
-	AvailableDateLegacy          string   `url:"availableDateLegacy,omitempty"`
-	CategoryIdPath               string   `url:"categoryIdPath,omitempty"`
-	CategoryPath                 string   `url:"categoryPath,omitempty"`
-	Condition                    string   `url:"condition,omitempty"`
-	Cover                        string   `url:"cover,omitempty"`
-	DefaultCategory              string   `url:"defaultCategory,omitempty"`
-	DeletedAt                    string   `url:"deletedAt,omitempty"`
-	Description                  string   `url:"description,omitempty"`
-	DescriptionShort             string   `url:"descriptionShort,omitempty"`
-	Ean                          string   `url:"ean,omitempty"`
-	Features                     string   `url:"features,omitempty"`
-	IdProductAttribute           string   `url:"idProductAttribute,omitempty"`
-	Images                       string   `url:"images,omitempty"`
-	Isbn                         string   `url:"isbn,omitempty"`
-	IsoCode                      string   `url:"isoCode,omitempty"`
-	Link                         string   `url:"link,omitempty"`
-	LinkRewrite                  string   `url:"linkRewrite,omitempty"`
-	Manufacturer                 string   `url:"manufacturer,omitempty"`
-	Mpn                          string   `url:"mpn,omitempty"`
-	Name                         string   `url:"name,omitempty"`
-	Reference                    string   `url:"reference,omitempty"`
-	SaleDate                     string   `url:"saleDate,omitempty"`
-	UniqueProductId              string   `url:"uniqueProductId,omitempty"`
-	Unity                        string   `url:"unity,omitempty"`
-	Upc                          string   `url:"upc,omitempty"`
-	Visibility                   string   `url:"visibility,omitempty"`
+	Active                       *bool   `url:"active,omitempty"`
+	AvailableForOrder            *bool   `url:"availableForOrder,omitempty"`
+	Deleted                      *bool   `url:"deleted,omitempty"`
+	IsBundle                     *bool   `url:"isBundle,omitempty"`
+	IsDefaultAttribute           *bool   `url:"isDefaultAttribute,omitempty"`
+	IsVirtual                    *bool   `url:"isVirtual,omitempty"`
+	DeletedAtStart               string  `url:"deletedAtStart,omitempty"`
+	DeletedAtEnd                 string  `url:"deletedAtEnd,omitempty"`
+	DeliveryInStock              string  `url:"deliveryInStock,omitempty"`
+	DeliveryOutStock             string  `url:"deliveryOutStock,omitempty"`
+	Attributes                   string  `url:"attributes,omitempty"`
+	AvailableDate                string  `url:"availableDate,omitempty"`
+	AvailableDateStart           string  `url:"availableDateStart,omitempty"`
+	AvailableDateEnd             string  `url:"availableDateEnd,omitempty"`
+	AvailableDateLegacy          string  `url:"availableDateLegacy,omitempty"`
+	CategoryIdPath               string  `url:"categoryIdPath,omitempty"`
+	CategoryPath                 string  `url:"categoryPath,omitempty"`
+	Condition                    string  `url:"condition,omitempty"`
+	Cover                        string  `url:"cover,omitempty"`
+	DefaultCategory              string  `url:"defaultCategory,omitempty"`
+	DeletedAt                    string  `url:"deletedAt,omitempty"`
+	Description                  string  `url:"description,omitempty"`
+	DescriptionShort             string  `url:"descriptionShort,omitempty"`
+	Ean                          string  `url:"ean,omitempty"`
+	Features                     string  `url:"features,omitempty"`
+	IdProductAttribute           string  `url:"idProductAttribute,omitempty"`
+	Images                       string  `url:"images,omitempty"`
+	Isbn                         string  `url:"isbn,omitempty"`
+	IsoCode                      string  `url:"isoCode,omitempty"`
+	Link                         string  `url:"link,omitempty"`
+	LinkRewrite                  string  `url:"linkRewrite,omitempty"`
+	Manufacturer                 string  `url:"manufacturer,omitempty"`
+	Mpn                          string  `url:"mpn,omitempty"`
+	Name                         string  `url:"name,omitempty"`
+	Reference                    string  `url:"reference,omitempty"`
+	SaleDate                     string  `url:"saleDate,omitempty"`
+	UniqueProductId              string  `url:"uniqueProductId,omitempty"`
+	Unity                        string  `url:"unity,omitempty"`
+	Upc                          string  `url:"upc,omitempty"`
+	Visibility                   string  `url:"visibility,omitempty"`
 	GenericListParams
 }
 
