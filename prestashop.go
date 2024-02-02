@@ -71,6 +71,7 @@ type errorResponse struct {
 	Code             string    `json:"code"`
 	Message          string    `json:"message"`
 	ErrorDescription string    `json:"error_description"`
+	StatusText       string    `json:"statusText"`
 	Data             ErrorData `json:"data"`
 }
 
@@ -79,9 +80,10 @@ type ErrorData struct {
 }
 
 func (response *errorResponse) Error() string {
-	return fmt.Sprintf("%v %v: %d %v %v",
+	return fmt.Sprintf("%v %v: %d %v %v %v",
 		response.Response.Request.Method, response.Response.Request.URL,
-		response.Response.StatusCode, response.Message, response.ErrorDescription)
+		response.Response.StatusCode, response.Message, response.ErrorDescription,
+		response.StatusText)
 }
 
 func New() (*Client, error) {
