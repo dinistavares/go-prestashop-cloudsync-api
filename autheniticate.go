@@ -24,6 +24,11 @@ type AccessTokenResponse struct {
 	TokenType   string `json:"token_type"`
 }
 
+func (client *Client) AuthenticateWithToken(accessToken string) {
+	client.auth.HeaderName = defaultAuthHeaderName
+	client.auth.AccessToken = "Bearer " + accessToken
+}
+
 func (client *Client) Authenticate(clientName string, clientID string, clientSecret string, maintainToken bool) error {
 	accessToken, _, err := client.GenerateAccessToken(clientName, clientID, clientSecret)
 
@@ -35,8 +40,7 @@ func (client *Client) Authenticate(clientName string, clientID string, clientSec
 		return errors.New("access token missing")
 	}
 
-	client.auth.HeaderName = defaultAuthHeaderName
-	client.auth.AccessToken = "Bearer " + accessToken.AccessToken
+	client.AuthenticateWithToken(accessToken.AccessToken)
 
 	if maintainToken {
 		go client.maintainAccessToken(clientName, clientID, clientSecret, accessToken.ExpiresIn)
