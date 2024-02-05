@@ -58,8 +58,9 @@ type Client struct {
 	auth    *auth
 	baseURL *url.URL
 
-	RawApi  *RawApi
-	SyncApi *SyncApi
+	RawApi       *RawApi
+	ReportingApi *ReportingApi
+	SyncApi      *SyncApi
 }
 
 type RawApi struct {
@@ -74,6 +75,10 @@ type SyncApi struct {
 	Sync *TriggerSyncService
 }
 
+type ReportingApi struct {
+	SyncErrors *SyncErrorsService
+}
+
 type service struct {
 	client *Client
 }
@@ -81,11 +86,11 @@ type service struct {
 type errorResponse struct {
 	Response *http.Response
 
-	Code             string    `json:"code"`
-	Message          string    `json:"message"`
-	ErrorDescription string    `json:"error_description"`
-	StatusText       string    `json:"statusText"`
-	Data             ErrorData `json:"data"`
+	Code             string      `json:"code"`
+	Message          string      `json:"message"`
+	ErrorDescription string      `json:"error_description"`
+	StatusText       interface{} `json:"statusText"`
+	Data             ErrorData   `json:"data"`
 }
 
 type ErrorData struct {
@@ -128,6 +133,10 @@ func New() (*Client, error) {
 
 	client.SyncApi = &SyncApi{
 		Sync: &TriggerSyncService{client: client},
+	}
+
+	client.ReportingApi = &ReportingApi{
+		SyncErrors: &SyncErrorsService{client: client},
 	}
 
 	return client, nil
