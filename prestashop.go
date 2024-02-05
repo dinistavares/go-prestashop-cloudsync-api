@@ -58,11 +58,20 @@ type Client struct {
 	auth    *auth
 	baseURL *url.URL
 
+	RawApi  *RawApi
+	SyncApi *SyncApi
+}
+
+type RawApi struct {
 	Carts        *CartsService
 	CartProducts *CartProductsService
 	Customers    *CustomersService
 	Orders       *OrdersService
 	Products     *ProductsService
+}
+
+type SyncApi struct {
+	Sync *TriggerSyncService
 }
 
 type service struct {
@@ -109,11 +118,17 @@ func New() (*Client, error) {
 	client := &Client{config: &config, client: config.HttpClient, auth: &auth{}, baseURL: baseURL}
 
 	// Map services
-	client.Carts = &CartsService{client: client}
-	client.CartProducts = &CartProductsService{client: client}
-	client.Customers = &CustomersService{client: client}
-	client.Orders = &OrdersService{client: client}
-	client.Products = &ProductsService{client: client}
+	client.RawApi = &RawApi{
+		Carts:        &CartsService{client: client},
+		CartProducts: &CartProductsService{client: client},
+		Customers:    &CustomersService{client: client},
+		Orders:       &OrdersService{client: client},
+		Products:     &ProductsService{client: client},
+	}
+
+	client.SyncApi = &SyncApi{
+		Sync: &TriggerSyncService{client: client},
+	}
 
 	return client, nil
 }
