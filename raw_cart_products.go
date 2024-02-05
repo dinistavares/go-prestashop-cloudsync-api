@@ -29,11 +29,11 @@ type CartProduct struct {
 }
 
 type CartProductListParams struct {
-	IdCart            string `url:"idCart,omitempty"`
-	IdCartProduct     string `url:"idCartProduct,omitempty"`
-	IdProduct         string `url:"idProduct,omitempty"`
+	IdCart           string `url:"idCart,omitempty"`
+	IdCartProduct    string `url:"idCartProduct,omitempty"`
+	IdProduct        string `url:"idProduct,omitempty"`
 	ProductAttribute string `url:"idProductAttribute,omitempty"`
-	Quantity          int    `url:"quantity,omitempty"`
+	Quantity         int    `url:"quantity,omitempty"`
 
 	GenericListParams
 }
