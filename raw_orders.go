@@ -3,7 +3,6 @@ package prestashop
 import (
 	"fmt"
 	"net/http"
-	"time"
 )
 
 // Order service
@@ -16,38 +15,36 @@ type OrdersResponse struct {
 }
 
 type Order struct {
-	CurrentState        float64    `json:"currentState,omitempty"`
-	ConversionRate      float64    `json:"conversionRate,omitempty"`
-	TotalPaidTaxExcl    float64    `json:"totalPaidTaxExcl,omitempty"`
-	Refund              float64    `json:"refund,omitempty"`
-	RefundTaxExcl       float64    `json:"refundTaxExcl,omitempty"`
-	ShippingCost        float64    `json:"shippingCost,omitempty"`
-	TotalPaidTax        float64    `json:"totalPaidTax,omitempty"`
-	TotalPaidReal       float64    `json:"totalPaidReal,omitempty"`
-	IDCarrier           float64    `json:"idCarrier,omitempty"`
-	TotalPaidTaxIncl    float64    `json:"totalPaidTaxIncl,omitempty"`
-	ID                  string     `json:"id,omitempty"`
-	ShopID              string     `json:"shopId,omitempty"`
-	IDOrder             string     `json:"idOrder,omitempty"`
-	Reference           string     `json:"reference,omitempty"`
-	IDCustomer          string     `json:"idCustomer,omitempty"`
-	IDCart              string     `json:"idCart,omitempty"`
-	Currency            string     `json:"currency,omitempty"`
-	PaymentMode         string     `json:"paymentMode,omitempty"`
-	PaymentModule       string     `json:"paymentModule,omitempty"`
-	InvoiceCountryCode  string     `json:"invoiceCountryCode,omitempty"`
-	DeliveryCountryCode string     `json:"deliveryCountryCode,omitempty"`
-	NewCustomer         *bool      `json:"newCustomer,omitempty"`
-	IsPaid              *bool      `json:"isPaid,omitempty"`
-	UpdatedAt           *time.Time `json:"updatedAt,omitempty"`
-	CreatedAt           *time.Time `json:"createdAt,omitempty"`
-	LastSyncedAt        *time.Time `json:"lastSyncedAt,omitempty"`
+	CurrentState        float64 `json:"currentState,omitempty"`
+	ConversionRate      float64 `json:"conversionRate,omitempty"`
+	TotalPaidTaxExcl    float64 `json:"totalPaidTaxExcl,omitempty"`
+	Refund              float64 `json:"refund,omitempty"`
+	RefundTaxExcl       float64 `json:"refundTaxExcl,omitempty"`
+	ShippingCost        float64 `json:"shippingCost,omitempty"`
+	TotalPaidTax        float64 `json:"totalPaidTax,omitempty"`
+	TotalPaidReal       float64 `json:"totalPaidReal,omitempty"`
+	IDCarrier           float64 `json:"idCarrier,omitempty"`
+	TotalPaidTaxIncl    float64 `json:"totalPaidTaxIncl,omitempty"`
+	ID                  string  `json:"id,omitempty"`
+	ShopID              string  `json:"shopId,omitempty"`
+	IDOrder             string  `json:"idOrder,omitempty"`
+	Reference           string  `json:"reference,omitempty"`
+	IDCustomer          string  `json:"idCustomer,omitempty"`
+	IDCart              string  `json:"idCart,omitempty"`
+	Currency            string  `json:"currency,omitempty"`
+	PaymentMode         string  `json:"paymentMode,omitempty"`
+	PaymentModule       string  `json:"paymentModule,omitempty"`
+	InvoiceCountryCode  string  `json:"invoiceCountryCode,omitempty"`
+	DeliveryCountryCode string  `json:"deliveryCountryCode,omitempty"`
+	NewCustomer         *bool   `json:"newCustomer,omitempty"`
+	IsPaid              *bool   `json:"isPaid,omitempty"`
+	UpdatedAt           string  `json:"updatedAt,omitempty"`
+	CreatedAt           string  `json:"createdAt,omitempty"`
+	LastSyncedAt        string  `json:"lastSyncedAt,omitempty"`
 }
 
 type OrderListParams struct {
 	IdCarrier             int     `url:"idCarrier,omitempty"`
-	IdCarrierStart        int     `url:"idCarrierStart,omitempty"`
-	IdCarrierEnd          int     `url:"idCarrierEnd,omitempty"`
 	CurrentState          int     `url:"currentState,omitempty"`
 	CurrentStateStart     int     `url:"currentStateStart,omitempty"`
 	CurrentStateEnd       int     `url:"currentStateEnd,omitempty"`

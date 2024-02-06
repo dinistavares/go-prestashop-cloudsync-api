@@ -3,7 +3,6 @@ package prestashop
 import (
 	"fmt"
 	"net/http"
-	"time"
 )
 
 // Product service
@@ -73,11 +72,11 @@ type Product struct {
 	AvailableForOrder       *bool      `json:"availableForOrder,omitempty"`
 	IsBundle                *bool      `json:"isBundle,omitempty"`
 	IsVirtual               *bool      `json:"isVirtual,omitempty"`
-	CreatedAt               *time.Time `json:"createdAt,omitempty"`
-	UpdatedAt               *time.Time `json:"updatedAt,omitempty"`
-	LastSyncedAt            *time.Time `json:"lastSyncedAt,omitempty"`
-	DeletedAt               *time.Time `json:"deletedAt,omitempty"`
-	AvailableDate           *time.Time `json:"availableDate,omitempty"`
+	CreatedAt               string `json:"createdAt,omitempty"`
+	UpdatedAt               string `json:"updatedAt,omitempty"`
+	LastSyncedAt            string `json:"lastSyncedAt,omitempty"`
+	DeletedAt               string `json:"deletedAt,omitempty"`
+	AvailableDate           string `json:"availableDate,omitempty"`
 }
 
 type ProductListParams struct {

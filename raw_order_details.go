@@ -38,19 +38,19 @@ type OrderDetail struct {
 
 type OrderDetailListParams struct {
 	Category                    string   `url:"category,omitempty"`
-	ConversionRate              *float64 `url:"conversionRate,omitempty"`
+	ConversionRate              float64 `url:"conversionRate,omitempty"`
 	Currency                    string   `url:"currency,omitempty"`
 	IdOrder                     string   `url:"idOrder,omitempty"`
 	IdOrderDetail               string   `url:"idOrderDetail,omitempty"`
 	IsoCode                     string   `url:"isoCode,omitempty"`
-	ProductAttributeId          *float64 `url:"productAttributeId,omitempty"`
-	ProductId                   *float64 `url:"productId,omitempty"`
-	ProductQuantity             *float64 `url:"productQuantity,omitempty"`
-	Refund                      *float64 `url:"refund,omitempty"`
-	RefundTaxExcl               *float64 `url:"refundTaxExcl,omitempty"`
+	ProductAttributeId          float64 `url:"productAttributeId,omitempty"`
+	ProductId                   float64 `url:"productId,omitempty"`
+	ProductQuantity             float64 `url:"productQuantity,omitempty"`
+	Refund                      float64 `url:"refund,omitempty"`
+	RefundTaxExcl               float64 `url:"refundTaxExcl,omitempty"`
 	UniqueProductId             string   `url:"uniqueProductId,omitempty"`
-	UnitPriceTaxExcl            *float64 `url:"unitPriceTaxExcl,omitempty"`
-	UnitPriceTaxIncl            *float64 `url:"unitPriceTaxIncl,omitempty"`
+	UnitPriceTaxExcl            float64 `url:"unitPriceTaxExcl,omitempty"`
+	UnitPriceTaxIncl            float64 `url:"unitPriceTaxIncl,omitempty"`
 	GenericListParams
 }
 

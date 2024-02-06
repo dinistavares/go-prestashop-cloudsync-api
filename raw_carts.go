@@ -3,7 +3,6 @@ package prestashop
 import (
 	"fmt"
 	"net/http"
-	"time"
 )
 
 // Cart service
@@ -16,12 +15,12 @@ type CartsResponse struct {
 }
 
 type Cart struct {
-	ID           string     `json:"id,omitempty"`
-	ShopID       string     `json:"shopId,omitempty"`
-	IDCart       string     `json:"idCart,omitempty"`
-	UpdatedAt    *time.Time `json:"updatedAt,omitempty"`
-	CreatedAt    *time.Time `json:"createdAt,omitempty"`
-	LastSyncedAt *time.Time `json:"lastSyncedAt,omitempty"`
+	ID           string `json:"id,omitempty"`
+	ShopID       string `json:"shopId,omitempty"`
+	IDCart       string `json:"idCart,omitempty"`
+	UpdatedAt    string `json:"updatedAt,omitempty"`
+	CreatedAt    string `json:"createdAt,omitempty"`
+	LastSyncedAt string `json:"lastSyncedAt,omitempty"`
 }
 
 type CartListParams struct {

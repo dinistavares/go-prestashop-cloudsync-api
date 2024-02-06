@@ -3,7 +3,6 @@ package prestashop
 import (
 	"fmt"
 	"net/http"
-	"time"
 )
 
 // Customer service
@@ -16,21 +15,21 @@ type CustomersResponse struct {
 }
 
 type Customer struct {
-	IDCustomer        int        `json:"idCustomer,omitempty"`
-	IDLang            int        `json:"idLang,omitempty"`
-	ID                string     `json:"id,omitempty"`
-	ShopID            string     `json:"shopId,omitempty"`
-	EmailHash         string     `json:"emailHash,omitempty"`
-	Newsletter        *bool      `json:"newsletter,omitempty"`
-	Optin             *bool      `json:"optin,omitempty"`
-	Active            *bool      `json:"active,omitempty"`
-	IsGuest           *bool      `json:"isGuest,omitempty"`
-	Deleted           *bool      `json:"deleted,omitempty"`
-	CreatedAt         *time.Time `json:"createdAt,omitempty"`
-	UpdatedAt         *time.Time `json:"updatedAt,omitempty"`
-	LastSyncedAt      *time.Time `json:"lastSyncedAt,omitempty"`
-	NewsletterDateAdd *time.Time `json:"newsletterDateAdd,omitempty"`
-	DeletedAt         *time.Time `json:"deletedAt,omitempty"`
+	IDCustomer        int    `json:"idCustomer,omitempty"`
+	IDLang            int    `json:"idLang,omitempty"`
+	Newsletter        *bool  `json:"newsletter,omitempty"`
+	Optin             *bool  `json:"optin,omitempty"`
+	Active            *bool  `json:"active,omitempty"`
+	IsGuest           *bool  `json:"isGuest,omitempty"`
+	Deleted           *bool  `json:"deleted,omitempty"`
+	ID                string `json:"id,omitempty"`
+	ShopID            string `json:"shopId,omitempty"`
+	EmailHash         string `json:"emailHash,omitempty"`
+	CreatedAt         string `json:"createdAt,omitempty"`
+	UpdatedAt         string `json:"updatedAt,omitempty"`
+	LastSyncedAt      string `json:"lastSyncedAt,omitempty"`
+	NewsletterDateAdd string `json:"newsletterDateAdd,omitempty"`
+	DeletedAt         string `json:"deletedAt,omitempty"`
 }
 
 type CustomerListParams struct {
@@ -38,12 +37,12 @@ type CustomerListParams struct {
 	DeletedAtStart         string `url:"deletedAtStart,omitempty"`
 	DeletedAtEnd           string `url:"deletedAtEnd,omitempty"`
 	EmailHash              string `url:"emailHash,omitempty"`
-	IdCustomer             *int   `url:"idCustomer,omitempty"`
-	IdCustomerStart        *int   `url:"idCustomerStart,omitempty"`
-	IdCustomerEnd          *int   `url:"idCustomerEnd,omitempty"`
-	IdLang                 *int   `url:"idLang,omitempty"`
-	IdLangStart            *int   `url:"idLangStart,omitempty"`
-	IdLangEnd              *int   `url:"idLangEnd,omitempty"`
+	IdCustomer             int   `url:"idCustomer,omitempty"`
+	IdCustomerStart        int   `url:"idCustomerStart,omitempty"`
+	IdCustomerEnd          int   `url:"idCustomerEnd,omitempty"`
+	IdLang                 int   `url:"idLang,omitempty"`
+	IdLangStart            int   `url:"idLangStart,omitempty"`
+	IdLangEnd              int   `url:"idLangEnd,omitempty"`
 	Active                 *bool  `url:"active,omitempty"`
 	Deleted                *bool  `url:"deleted,omitempty"`
 	IsGuest                *bool  `url:"isGuest,omitempty"`
@@ -60,6 +59,8 @@ func (service *CustomersService) List(shopID string, opts *CustomerListParams) (
 	_url := fmt.Sprintf("%s/%s/customers", service.client.getResourceTypeRaw(), shopID)
 
 	req, _ := service.client.NewRequest("GET", _url, opts, nil)
+	
+	fmt.Println("URL: ",req.URL)
 
 	customers := new(CustomersResponse)
 	response, err := service.client.Do(req, customers)
