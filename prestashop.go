@@ -72,6 +72,7 @@ type RawApi struct {
 	CartProducts       *CartProductsService
 	CartRules          *CartRulesService
 	Categories         *CategoriesService
+	Currencies         *CurrenciesService
 	Customers          *CustomersService
 	Orders             *OrdersService
 	OrderDetails       *OrderDetailsService
@@ -140,6 +141,7 @@ func New() (*Client, error) {
 		CartProducts:       &CartProductsService{client: client},
 		CartRules:          &CartRulesService{client: client},
 		Categories:         &CategoriesService{client: client},
+		Currencies:         &CurrenciesService{client: client},
 		Customers:          &CustomersService{client: client},
 		Orders:             &OrdersService{client: client},
 		OrderDetails:       &OrderDetailsService{client: client},
