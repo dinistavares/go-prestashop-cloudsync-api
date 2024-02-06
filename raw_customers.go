@@ -59,8 +59,6 @@ func (service *CustomersService) List(shopID string, opts *CustomerListParams) (
 	_url := fmt.Sprintf("%s/%s/customers", service.client.getResourceTypeRaw(), shopID)
 
 	req, _ := service.client.NewRequest("GET", _url, opts, nil)
-	
-	fmt.Println("URL: ",req.URL)
 
 	customers := new(CustomersResponse)
 	response, err := service.client.Do(req, customers)
