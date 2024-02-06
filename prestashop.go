@@ -64,12 +64,13 @@ type Client struct {
 }
 
 type RawApi struct {
-	Carts        *CartsService
-	CartProducts *CartProductsService
-	Customers    *CustomersService
-	Orders       *OrdersService
-	OrderDetails *OrderDetailsService
-	Products     *ProductsService
+	Carts              *CartsService
+	CartProducts       *CartProductsService
+	Customers          *CustomersService
+	Orders             *OrdersService
+	OrderDetails       *OrderDetailsService
+	OrderStatusHistory *OrderStatusHistoryService
+	Products           *ProductsService
 }
 
 type SyncApi struct {
@@ -125,12 +126,13 @@ func New() (*Client, error) {
 
 	// Map services
 	client.RawApi = &RawApi{
-		Carts:        &CartsService{client: client},
-		CartProducts: &CartProductsService{client: client},
-		Customers:    &CustomersService{client: client},
-		Orders:       &OrdersService{client: client},
-		OrderDetails: &OrderDetailsService{client: client},
-		Products:     &ProductsService{client: client},
+		Carts:              &CartsService{client: client},
+		CartProducts:       &CartProductsService{client: client},
+		Customers:          &CustomersService{client: client},
+		Orders:             &OrdersService{client: client},
+		OrderDetails:       &OrderDetailsService{client: client},
+		OrderStatusHistory: &OrderStatusHistoryService{client: client},
+		Products:           &ProductsService{client: client},
 	}
 
 	client.SyncApi = &SyncApi{
