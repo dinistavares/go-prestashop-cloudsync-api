@@ -29,15 +29,15 @@ func (client *Client) AuthenticateWithToken(accessToken string) {
 	client.auth.AccessToken = "Bearer " + accessToken
 }
 
-func (client *Client) Authenticate(clientName string, clientID string, clientSecret string, maintainToken bool) error {
+func (client *Client) Authenticate(clientName string, clientID string, clientSecret string, maintainToken bool) (*AccessTokenResponse, error) {
 	accessToken, _, err := client.GenerateAccessToken(clientName, clientID, clientSecret)
 
 	if err != nil {
-		return err
+		return accessToken, err
 	}
 
 	if accessToken == nil {
-		return errors.New("access token missing")
+		return accessToken, errors.New("access token missing")
 	}
 
 	client.AuthenticateWithToken(accessToken.AccessToken)
@@ -46,7 +46,7 @@ func (client *Client) Authenticate(clientName string, clientID string, clientSec
 		go client.maintainAccessToken(clientName, clientID, clientSecret, accessToken.ExpiresIn)
 	}
 
-	return nil
+	return accessToken, nil
 }
 
 func (client *Client) maintainAccessToken(clientName string, clientID string, clientSecret string, expiresIn int) {
@@ -62,7 +62,7 @@ func (client *Client) maintainAccessToken(clientName string, clientID string, cl
 		}
 
 		attempts++
-		err := client.Authenticate(clientName, clientID, clientSecret, true)
+		_, err := client.Authenticate(clientName, clientID, clientSecret, true)
 
 		// Re-authentication successfull, stop there.
 		if err == nil {
