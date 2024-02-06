@@ -64,6 +64,7 @@ type Client struct {
 }
 
 type RawApi struct {
+	Bundles            *BundlesService
 	Carts              *CartsService
 	CartProducts       *CartProductsService
 	Customers          *CustomersService
@@ -126,6 +127,7 @@ func New() (*Client, error) {
 
 	// Map services
 	client.RawApi = &RawApi{
+		Bundles:            &BundlesService{client: client},
 		Carts:              &CartsService{client: client},
 		CartProducts:       &CartProductsService{client: client},
 		Customers:          &CustomersService{client: client},
