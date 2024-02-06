@@ -64,20 +64,21 @@ type Client struct {
 }
 
 type RawApi struct {
-	Bundles            *BundlesService
-	Carriers           *CarriersService
-	CarrierDetails     *CarrierDetailsService
-	CarrierTaxes       *CarrierTaxesService
-	Carts              *CartsService
-	CartProducts       *CartProductsService
-	CartRules          *CartRulesService
-	Categories         *CategoriesService
-	Currencies         *CurrenciesService
-	Customers          *CustomersService
-	Orders             *OrdersService
-	OrderDetails       *OrderDetailsService
-	OrderStatusHistory *OrderStatusHistoryService
-	Products           *ProductsService
+	Bundles               *BundlesService
+	Carriers              *CarriersService
+	CarrierDetails        *CarrierDetailsService
+	CarrierTaxes          *CarrierTaxesService
+	Carts                 *CartsService
+	CartProducts          *CartProductsService
+	CartRules             *CartRulesService
+	Categories            *CategoriesService
+	Currencies            *CurrenciesService
+	CustomProductCarriers *CustomProductCarriersService
+	Customers             *CustomersService
+	Orders                *OrdersService
+	OrderDetails          *OrderDetailsService
+	OrderStatusHistory    *OrderStatusHistoryService
+	Products              *ProductsService
 }
 
 type SyncApi struct {
@@ -133,20 +134,21 @@ func New() (*Client, error) {
 
 	// Map services
 	client.RawApi = &RawApi{
-		Bundles:            &BundlesService{client: client},
-		Carriers:           &CarriersService{client: client},
-		CarrierDetails:     &CarrierDetailsService{client: client},
-		CarrierTaxes:       &CarrierTaxesService{client: client},
-		Carts:              &CartsService{client: client},
-		CartProducts:       &CartProductsService{client: client},
-		CartRules:          &CartRulesService{client: client},
-		Categories:         &CategoriesService{client: client},
-		Currencies:         &CurrenciesService{client: client},
-		Customers:          &CustomersService{client: client},
-		Orders:             &OrdersService{client: client},
-		OrderDetails:       &OrderDetailsService{client: client},
-		OrderStatusHistory: &OrderStatusHistoryService{client: client},
-		Products:           &ProductsService{client: client},
+		Bundles:               &BundlesService{client: client},
+		Carriers:              &CarriersService{client: client},
+		CarrierDetails:        &CarrierDetailsService{client: client},
+		CarrierTaxes:          &CarrierTaxesService{client: client},
+		Carts:                 &CartsService{client: client},
+		CartProducts:          &CartProductsService{client: client},
+		CartRules:             &CartRulesService{client: client},
+		Categories:            &CategoriesService{client: client},
+		Currencies:            &CurrenciesService{client: client},
+		CustomProductCarriers: &CustomProductCarriersService{client: client},
+		Customers:             &CustomersService{client: client},
+		Orders:                &OrdersService{client: client},
+		OrderDetails:          &OrderDetailsService{client: client},
+		OrderStatusHistory:    &OrderStatusHistoryService{client: client},
+		Products:              &ProductsService{client: client},
 	}
 
 	client.SyncApi = &SyncApi{
