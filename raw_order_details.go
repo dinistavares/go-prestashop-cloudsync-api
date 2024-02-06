@@ -60,8 +60,6 @@ func (service *OrderDetailsService) List(shopID string, opts *OrderDetailListPar
 	_url := fmt.Sprintf("%s/%s/order-details", service.client.getResourceTypeRaw(), shopID)
 
 	req, _ := service.client.NewRequest("GET", _url, opts, nil)
-	
-	fmt.Println("URL: ", req.URL)
 
 	orderDetails := new(OrderDetailsResponse)
 	response, err := service.client.Do(req, orderDetails)
