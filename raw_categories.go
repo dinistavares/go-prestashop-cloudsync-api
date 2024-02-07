@@ -9,8 +9,8 @@ import (
 type CategoriesService service
 
 type CategoriesResponse struct {
-	Category   Category   `json:"item,omitempty"`
-	Categories []Category `json:"items,omitempty"`
+	Category   *Category   `json:"item,omitempty"`
+	Categories *[]Category `json:"items,omitempty"`
 	GenericListResponse
 }
 

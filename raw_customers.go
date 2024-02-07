@@ -9,8 +9,8 @@ import (
 type CustomersService service
 
 type CustomersResponse struct {
-	Customer  Customer   `json:"item,omitempty"`
-	Customers []Customer `json:"items,omitempty"`
+	Customer  *Customer   `json:"item,omitempty"`
+	Customers *[]Customer `json:"items,omitempty"`
 	GenericListResponse
 }
 

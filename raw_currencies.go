@@ -9,8 +9,8 @@ import (
 type CurrenciesService service
 
 type CurrenciesResponse struct {
-	Currency   Currency   `json:"item,omitempty"`
-	Currencies []Currency `json:"items,omitempty"`
+	Currency   *Currency   `json:"item,omitempty"`
+	Currencies *[]Currency `json:"items,omitempty"`
 	GenericListResponse
 }
 

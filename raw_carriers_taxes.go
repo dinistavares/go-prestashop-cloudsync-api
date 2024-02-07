@@ -9,8 +9,8 @@ import (
 type CarrierTaxesService service
 
 type CarrierTaxesResponse struct {
-	CarrierTax   CarrierTax   `json:"item,omitempty"`
-	CarrierTaxes []CarrierTax `json:"items,omitempty"`
+	CarrierTax   *CarrierTax   `json:"item,omitempty"`
+	CarrierTaxes *[]CarrierTax `json:"items,omitempty"`
 	GenericListResponse
 }
 

@@ -9,8 +9,8 @@ import (
 type CarrierDetailsService service
 
 type CarrierDetailsResponse struct {
-	CarrierDetail  CarrierDetail   `json:"item,omitempty"`
-	CarrierDetails []CarrierDetail `json:"items,omitempty"`
+	CarrierDetail  *CarrierDetail   `json:"item,omitempty"`
+	CarrierDetails *[]CarrierDetail `json:"items,omitempty"`
 	GenericListResponse
 }
 

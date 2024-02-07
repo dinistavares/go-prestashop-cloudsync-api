@@ -9,8 +9,8 @@ import (
 type CustomProductCarriersService service
 
 type CustomProductCarriersResponse struct {
-	CustomProductCarrier  CustomProductCarrier   `json:"item,omitempty"`
-	CustomProductCarriers []CustomProductCarrier `json:"items,omitempty"`
+	CustomProductCarrier  *CustomProductCarrier   `json:"item,omitempty"`
+	CustomProductCarriers *[]CustomProductCarrier `json:"items,omitempty"`
 	GenericListResponse
 }
 

@@ -15,7 +15,8 @@ type OrdersResponse struct {
 }
 
 type Order struct {
-	CurrentState        float64 `json:"currentState,omitempty"`
+	IDCarrier           int     `json:"idCarrier,omitempty"`
+	CurrentState        int     `json:"currentState,omitempty"`
 	ConversionRate      float64 `json:"conversionRate,omitempty"`
 	TotalPaidTaxExcl    float64 `json:"totalPaidTaxExcl,omitempty"`
 	Refund              float64 `json:"refund,omitempty"`
@@ -23,7 +24,6 @@ type Order struct {
 	ShippingCost        float64 `json:"shippingCost,omitempty"`
 	TotalPaidTax        float64 `json:"totalPaidTax,omitempty"`
 	TotalPaidReal       float64 `json:"totalPaidReal,omitempty"`
-	IDCarrier           float64 `json:"idCarrier,omitempty"`
 	TotalPaidTaxIncl    float64 `json:"totalPaidTaxIncl,omitempty"`
 	ID                  string  `json:"id,omitempty"`
 	ShopID              string  `json:"shopId,omitempty"`

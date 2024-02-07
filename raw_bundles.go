@@ -9,8 +9,8 @@ import (
 type BundlesService service
 
 type BundlesResponse struct {
-	Bundle  Bundle   `json:"item,omitempty"`
-	Bundles []Bundle `json:"items,omitempty"`
+	Bundle  *Bundle   `json:"item,omitempty"`
+	Bundles *[]Bundle `json:"items,omitempty"`
 	GenericListResponse
 }
 
