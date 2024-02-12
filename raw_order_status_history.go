@@ -39,7 +39,7 @@ type OrderStatusHistoryListParams struct {
 	DateAdd          string `url:"dateAdd,omitempty"`
 	IdOrder          string `url:"idOrder,omitempty"`
 	IdOrderHistory   int    `url:"idOrderHistory,omitempty"`
-	IdOrderState     int    `url:"idOrderState,omitempty"`
+	IdOrderState     string `url:"idOrderState,omitempty"`
 	IsDeleted        bool   `url:"isDeleted,omitempty"`
 	IsDelivered      bool   `url:"isDelivered,omitempty"`
 	IsPaid           bool   `url:"isPaid,omitempty"`
