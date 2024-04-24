@@ -86,7 +86,8 @@ type SyncApi struct {
 }
 
 type ReportingApi struct {
-	SyncErrors *SyncErrorsService
+	SyncDetails *SyncDetailsService
+	SyncErrors  *SyncErrorsService
 }
 
 type service struct {
@@ -156,6 +157,7 @@ func New() (*Client, error) {
 	}
 
 	client.ReportingApi = &ReportingApi{
+		SyncDetails: &SyncDetailsService{client: client},
 		SyncErrors: &SyncErrorsService{client: client},
 	}
 
