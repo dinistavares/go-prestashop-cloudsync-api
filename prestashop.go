@@ -79,6 +79,7 @@ type RawApi struct {
 	OrderDetails          *OrderDetailsService
 	OrderStatusHistory    *OrderStatusHistoryService
 	Products              *ProductsService
+	Shop                  *ShopService
 }
 
 type SyncApi struct {
@@ -150,6 +151,7 @@ func New() (*Client, error) {
 		OrderDetails:          &OrderDetailsService{client: client},
 		OrderStatusHistory:    &OrderStatusHistoryService{client: client},
 		Products:              &ProductsService{client: client},
+		Shop:                  &ShopService{client: client},
 	}
 
 	client.SyncApi = &SyncApi{
@@ -158,7 +160,7 @@ func New() (*Client, error) {
 
 	client.ReportingApi = &ReportingApi{
 		SyncDetails: &SyncDetailsService{client: client},
-		SyncErrors: &SyncErrorsService{client: client},
+		SyncErrors:  &SyncErrorsService{client: client},
 	}
 
 	return client, nil
