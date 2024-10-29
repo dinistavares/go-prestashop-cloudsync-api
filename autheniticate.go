@@ -8,12 +8,13 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"sync"
 	"time"
 )
 
 const (
-	maintainAccessTokenBuffer   = 300
-	authenticationRetryAttempts = 3
+	maintainAccessTokenBuffer     = 300
+	authenticationRetryAttempts   = 3
 	authenticationRetryHoldMillis = 2000
 )
 
@@ -50,24 +51,48 @@ func (client *Client) Authenticate(clientName string, clientID string, clientSec
 }
 
 func (client *Client) maintainAccessToken(clientName string, clientID string, clientSecret string, expiresIn int) {
+	// Initialize maintain token if not already initialized
+	if client.maintainToken == nil {
+		client.maintainToken = &maintainAccessToken{
+			Lock:      &sync.RWMutex{},
+			Attempt:   0,
+			LastError: nil,
+			Stopped:   false,
+		}
+	}
+
 	// Wait before renewing access token using expire and maintain buffer
 	time.Sleep(time.Second * time.Duration(expiresIn-maintainAccessTokenBuffer))
 
-	attempts := 0
-
-	for attempts < authenticationRetryAttempts {
+	for client.maintainToken.Attempt < authenticationRetryAttempts {
 		// Hold before this attempt? (ie. not first attempt)
-		if attempts > 0 {
+		if client.maintainToken.Attempt > 0 {
 			time.Sleep(authenticationRetryHoldMillis * time.Millisecond)
 		}
 
-		attempts++
+		// Increment attempt counter
+		client.maintainToken.Attempt++
+
+		// Re-authenticate client
+		client.maintainToken.Lock.Lock()
 		_, err := client.Authenticate(clientName, clientID, clientSecret, true)
+		client.maintainToken.Lock.Unlock()
 
 		// Re-authentication successfull, stop there.
 		if err == nil {
+			// Reset attempt counter and last error
+			client.maintainToken.Attempt = 0
+			client.maintainToken.LastError = nil
+
 			break
 		}
+
+		// Reached max attempts, set stopped flag.
+		if client.maintainToken.Attempt >= authenticationRetryAttempts {
+			client.maintainToken.Stopped = true
+		}
+
+		client.maintainToken.LastError = err
 	}
 }
 
@@ -100,4 +125,13 @@ func (client *Client) GenerateAccessToken(clientName string, clientID string, cl
 
 func generateBasicBase64Token(clientID string, clientSecret string) string {
 	return fmt.Sprintf("Basic %s", base64.StdEncoding.EncodeToString([]byte(strings.Join([]string{clientID, clientSecret}, ":"))))
+}
+
+// Returns stopped flag (will not attempt to re-authenticate), attempt counter and last error.
+func (client *Client) FetchMaintainTokenStopped() (bool, int, error) {
+	if client.maintainToken == nil {
+		return true, -1, nil
+	}
+
+	return client.maintainToken.Stopped, client.maintainToken.Attempt, client.maintainToken.LastError
 }
