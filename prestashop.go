@@ -8,14 +8,13 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"sync"
 	"time"
 
 	"github.com/google/go-querystring/query"
 )
 
 const (
-	libraryVersion               = "1.4"
+	libraryVersion               = "1.5"
 	defaultRestEndpointVersion   = "v1"
 	defaultAuthHeaderName        = "Authorization"
 	defaultRestEndpointURL       = "https://api.cloudsync.prestashop.com"
@@ -66,7 +65,6 @@ type Client struct {
 }
 
 type maintainAccessToken struct {
-	Lock      *sync.RWMutex
 	Attempt   int
 	LastError error
 	Stopped   bool
@@ -257,13 +255,6 @@ func (client *Client) Do(req *http.Request, v interface{}) (*http.Response, erro
 }
 
 func (client *Client) doAttempt(req *http.Request, v interface{}) (*http.Response, bool, error) {
-	// Maintain access token was enabled. Lock access token for read \
-	// incase token is being renewed.
-	if client.maintainToken != nil && client.maintainToken.Lock != nil {
-		client.maintainToken.Lock.RLock()
-		defer client.maintainToken.Lock.RUnlock()
-	}
-
 	if req == nil {
 		return nil, false, errorDoAttemptNilRequest
 	}

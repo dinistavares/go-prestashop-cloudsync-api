@@ -8,7 +8,6 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"sync"
 	"time"
 )
 
@@ -54,7 +53,6 @@ func (client *Client) maintainAccessToken(clientName string, clientID string, cl
 	// Initialize maintain token if not already initialized
 	if client.maintainToken == nil {
 		client.maintainToken = &maintainAccessToken{
-			Lock:      &sync.RWMutex{},
 			Attempt:   0,
 			LastError: nil,
 			Stopped:   false,
@@ -74,9 +72,7 @@ func (client *Client) maintainAccessToken(clientName string, clientID string, cl
 		client.maintainToken.Attempt++
 
 		// Re-authenticate client
-		client.maintainToken.Lock.Lock()
 		_, err := client.Authenticate(clientName, clientID, clientSecret, true)
-		client.maintainToken.Lock.Unlock()
 
 		// Re-authentication successfull, stop there.
 		if err == nil {
