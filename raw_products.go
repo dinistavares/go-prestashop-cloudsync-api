@@ -15,74 +15,74 @@ type ProductsResponse struct {
 }
 
 type Product struct {
-	IDProduct               int        `json:"idProduct,omitempty"`
-	IDAttribute             int        `json:"idAttribute,omitempty"`
-	IDCategoryDefault       int        `json:"idCategoryDefault,omitempty"`
-	Quantity                int        `json:"quantity,omitempty"`
-	AdditionalDeliveryTimes int        `json:"additionalDeliveryTimes,omitempty"`
-	AdditionalShippingCost  int        `json:"additionalShippingCost,omitempty"`
-	UnitPriceRatio          int        `json:"unitPriceRatio,omitempty"`
-	IDCategoryDefaultBigint int        `json:"idCategoryDefaultBigint,omitempty"`
-	IDManufacturer          int        `json:"idManufacturer,omitempty"`
-	IDSupplier              int        `json:"idSupplier,omitempty"`
-	Weight                  float64    `json:"weight,omitempty"`
-	PriceTaxIncl            float64    `json:"priceTaxIncl,omitempty"`
-	PriceTaxExcl            float64    `json:"priceTaxExcl,omitempty"`
-	SalePriceTaxExcl        float64    `json:"salePriceTaxExcl,omitempty"`
-	SalePriceTaxIncl        float64    `json:"salePriceTaxIncl,omitempty"`
-	Width                   float64    `json:"width,omitempty"`
-	Height                  float64    `json:"height,omitempty"`
-	Depth                   float64    `json:"depth,omitempty"`
-	Tax                     float64    `json:"tax,omitempty"`
-	SaleTax                 float64    `json:"saleTax,omitempty"`
-	ID                      string     `json:"id,omitempty"`
-	ShopID                  string     `json:"shopId,omitempty"`
-	UniqueProductID         string     `json:"uniqueProductId,omitempty"`
-	Name                    string     `json:"name,omitempty"`
-	Description             string     `json:"description,omitempty"`
-	DescriptionShort        string     `json:"descriptionShort,omitempty"`
-	IsoCode                 string     `json:"isoCode,omitempty"`
-	DefaultCategory         string     `json:"defaultCategory,omitempty"`
-	LinkRewrite             string     `json:"linkRewrite,omitempty"`
-	Reference               string     `json:"reference,omitempty"`
-	Upc                     string     `json:"upc,omitempty"`
-	Ean                     string     `json:"ean,omitempty"`
-	Isbn                    string     `json:"isbn,omitempty"`
-	Condition               string     `json:"condition,omitempty"`
-	Visibility              string     `json:"visibility,omitempty"`
-	Manufacturer            string     `json:"manufacturer,omitempty"`
-	Link                    string     `json:"link,omitempty"`
-	Cover                   string     `json:"cover,omitempty"`
-	Attributes              string     `json:"attributes,omitempty"`
-	Features                string     `json:"features,omitempty"`
-	Images                  string     `json:"images,omitempty"`
-	CategoryPath            string     `json:"categoryPath,omitempty"`
-	CategoryIDPath          string     `json:"categoryIdPath,omitempty"`
-	IDProductAttribute      string     `json:"idProductAttribute,omitempty"`
-	AvailableDateLegacy     string     `json:"availableDateLegacy,omitempty"`
-	DeliveryInStock         string     `json:"deliveryInStock,omitempty"`
-	DeliveryOutStock        string     `json:"deliveryOutStock,omitempty"`
-	SaleDate                string     `json:"saleDate,omitempty"`
-	Unity                   string     `json:"unity,omitempty"`
-	PricePerUnit            string     `json:"pricePerUnit,omitempty"`
-	Mpn                     string     `json:"mpn,omitempty"`
-	Active                  *bool      `json:"active,omitempty"`
-	Deleted                 *bool      `json:"deleted,omitempty"`
-	IsDefaultAttribute      *bool      `json:"isDefaultAttribute,omitempty"`
-	AvailableForOrder       *bool      `json:"availableForOrder,omitempty"`
-	IsBundle                *bool      `json:"isBundle,omitempty"`
-	IsVirtual               *bool      `json:"isVirtual,omitempty"`
-	CreatedAt               string `json:"createdAt,omitempty"`
-	UpdatedAt               string `json:"updatedAt,omitempty"`
-	LastSyncedAt            string `json:"lastSyncedAt,omitempty"`
-	DeletedAt               string `json:"deletedAt,omitempty"`
-	AvailableDate           string `json:"availableDate,omitempty"`
+	IDProduct               string  `json:"idProduct,omitempty"`
+	IDAttribute             string  `json:"idAttribute,omitempty"`
+	IDCategoryDefault       string  `json:"idCategoryDefault,omitempty"`
+	Quantity                int     `json:"quantity,omitempty"`
+	AdditionalDeliveryTimes int     `json:"additionalDeliveryTimes,omitempty"`
+	AdditionalShippingCost  int     `json:"additionalShippingCost,omitempty"`
+	UnitPriceRatio          int     `json:"unitPriceRatio,omitempty"`
+	IDCategoryDefaultBigint int     `json:"idCategoryDefaultBigint,omitempty"`
+	IDManufacturer          int     `json:"idManufacturer,omitempty"`
+	IDSupplier              int     `json:"idSupplier,omitempty"`
+	Weight                  float64 `json:"weight,omitempty"`
+	PriceTaxIncl            float64 `json:"priceTaxIncl,omitempty"`
+	PriceTaxExcl            float64 `json:"priceTaxExcl,omitempty"`
+	SalePriceTaxExcl        float64 `json:"salePriceTaxExcl,omitempty"`
+	SalePriceTaxIncl        float64 `json:"salePriceTaxIncl,omitempty"`
+	Width                   float64 `json:"width,omitempty"`
+	Height                  float64 `json:"height,omitempty"`
+	Depth                   float64 `json:"depth,omitempty"`
+	Tax                     float64 `json:"tax,omitempty"`
+	SaleTax                 float64 `json:"saleTax,omitempty"`
+	ID                      string  `json:"id,omitempty"`
+	ShopID                  string  `json:"shopId,omitempty"`
+	UniqueProductID         string  `json:"uniqueProductId,omitempty"`
+	Name                    string  `json:"name,omitempty"`
+	Description             string  `json:"description,omitempty"`
+	DescriptionShort        string  `json:"descriptionShort,omitempty"`
+	IsoCode                 string  `json:"isoCode,omitempty"`
+	DefaultCategory         string  `json:"defaultCategory,omitempty"`
+	LinkRewrite             string  `json:"linkRewrite,omitempty"`
+	Reference               string  `json:"reference,omitempty"`
+	Upc                     string  `json:"upc,omitempty"`
+	Ean                     string  `json:"ean,omitempty"`
+	Isbn                    string  `json:"isbn,omitempty"`
+	Condition               string  `json:"condition,omitempty"`
+	Visibility              string  `json:"visibility,omitempty"`
+	Manufacturer            string  `json:"manufacturer,omitempty"`
+	Link                    string  `json:"link,omitempty"`
+	Cover                   string  `json:"cover,omitempty"`
+	Attributes              string  `json:"attributes,omitempty"`
+	Features                string  `json:"features,omitempty"`
+	Images                  string  `json:"images,omitempty"`
+	CategoryPath            string  `json:"categoryPath,omitempty"`
+	CategoryIDPath          string  `json:"categoryIdPath,omitempty"`
+	IDProductAttribute      string  `json:"idProductAttribute,omitempty"`
+	AvailableDateLegacy     string  `json:"availableDateLegacy,omitempty"`
+	DeliveryInStock         string  `json:"deliveryInStock,omitempty"`
+	DeliveryOutStock        string  `json:"deliveryOutStock,omitempty"`
+	SaleDate                string  `json:"saleDate,omitempty"`
+	Unity                   string  `json:"unity,omitempty"`
+	PricePerUnit            string  `json:"pricePerUnit,omitempty"`
+	Mpn                     string  `json:"mpn,omitempty"`
+	Active                  *bool   `json:"active,omitempty"`
+	Deleted                 *bool   `json:"deleted,omitempty"`
+	IsDefaultAttribute      *bool   `json:"isDefaultAttribute,omitempty"`
+	AvailableForOrder       *bool   `json:"availableForOrder,omitempty"`
+	IsBundle                *bool   `json:"isBundle,omitempty"`
+	IsVirtual               *bool   `json:"isVirtual,omitempty"`
+	CreatedAt               string  `json:"createdAt,omitempty"`
+	UpdatedAt               string  `json:"updatedAt,omitempty"`
+	LastSyncedAt            string  `json:"lastSyncedAt,omitempty"`
+	DeletedAt               string  `json:"deletedAt,omitempty"`
+	AvailableDate           string  `json:"availableDate,omitempty"`
 }
 
 type ProductListParams struct {
-	IdAttribute                  int     `url:"idAttribute,omitempty"`
-	IdAttributeStart             int     `url:"idAttributeStart,omitempty"`
-	IdAttributeEnd               int     `url:"idAttributeEnd,omitempty"`
+	IdAttribute                  string  `url:"idAttribute,omitempty"`
+	IdAttributeStart             string  `url:"idAttributeStart,omitempty"`
+	IdAttributeEnd               string  `url:"idAttributeEnd,omitempty"`
 	IdCategoryDefault            int     `url:"idCategoryDefault,omitempty"`
 	IdCategoryDefaultStart       int     `url:"idCategoryDefaultStart,omitempty"`
 	IdCategoryDefaultEnd         int     `url:"idCategoryDefaultEnd,omitempty"`
@@ -90,9 +90,9 @@ type ProductListParams struct {
 	IdCategoryDefaultBigintStart int     `url:"idCategoryDefaultBigintStart,omitempty"`
 	IdCategoryDefaultBigintEnd   int     `url:"idCategoryDefaultBigintEnd,omitempty"`
 	IdManufacturer               int     `url:"idManufacturer,omitempty"`
-	IdProduct                    int     `url:"idProduct,omitempty"`
-	IdProductStart               int     `url:"idProductStart,omitempty"`
-	IdProductEnd                 int     `url:"idProductEnd,omitempty"`
+	IdProduct                    string     `url:"idProduct,omitempty"`
+	IdProductStart               string     `url:"idProductStart,omitempty"`
+	IdProductEnd                 string     `url:"idProductEnd,omitempty"`
 	IdSupplier                   int     `url:"idSupplier,omitempty"`
 	Quantity                     int     `url:"quantity,omitempty"`
 	QuantityStart                int     `url:"quantityStart,omitempty"`

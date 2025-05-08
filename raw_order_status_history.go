@@ -20,10 +20,10 @@ type OrderStatusHistory struct {
 	CreatedAt        string   `json:"createdAt,omitempty"`
 	UpdatedAt        string   `json:"updatedAt,omitempty"`
 	LastSyncedAt     string   `json:"lastSyncedAt,omitempty"`
-	IDOrderHistory   *int     `json:"idOrderHistory,omitempty"`
+	IDOrderHistory   string   `json:"idOrderHistory,omitempty"`
 	IDOrder          string   `json:"idOrder,omitempty"`
 	DateAdd          string   `json:"dateAdd,omitempty"`
-	IDOrderState     *int     `json:"idOrderState,omitempty"`
+	IDOrderState     string   `json:"idOrderState,omitempty"`
 	Name             string   `json:"name,omitempty"`
 	Template         string   `json:"template,omitempty"`
 	IsValidated      *bool    `json:"isValidated,omitempty"`
